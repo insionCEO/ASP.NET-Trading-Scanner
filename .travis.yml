@@ -1,0 +1,21 @@
+services:
+    - postgresql
+language: rust
+rust:
+  - stable
+install:
+    - rustup component add rustfmt-preview
+    - rustup component add clippy-preview
+before_script:
+  - cargo install sqlx-cli
+  - sqlx db create
+  - sqlx migrate run
+script:
+    - cargo test
+    - cargo fmt -- --check
+    - cargo clippy -- -D warnings
+    - cd scheduled_tasks && cargo test && cargo fmt -- --check && cargo clippy -- -D warnings
+jobs:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
