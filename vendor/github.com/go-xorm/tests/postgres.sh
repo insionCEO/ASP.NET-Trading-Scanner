@@ -1,1 +1,0 @@
-dynamic_path_test.sh
