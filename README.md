@@ -1,12 +1,8 @@
-# TradeView
-
-[![Build Status](https://ci.appveyor.com/api/projects/status/lsf9kuf5p93wvr0p/branch/master?svg=true)](https://ci.appveyor.com/project/grantcolley/tradeview/branch/master)
-
 ##### Technologies
 * ###### .NET Core 3.1, .Net Standard 2.1, WPF, ASP.NET Core WebHost, WebSockets, Prism, Unity
 #####  
 
-A platform for trading crypto currencies and running crypto currency strategies including [TradeView](#tradeview-wpf-ui), which is a WPF UI built on the [Origin](https://github.com/grantcolley/origin) framework, and [TradeServer](#tradeserver-aspnetcore-webhost), a ASP.NET Core web host.
+A platform for trading crypto currencies and running crypto currency strategies including [TradeView](#tradeview-wpf-ui), which is a WPF UI built on the [Origin](https://github.com/insionCEO/origin) framework, and [TradeServer](#tradeserver-aspnetcore-webhost), a ASP.NET Core web host.
 
 **TradeView** and **TradeServer** enables you to: 
 * Connect to your exchage accounts, trade currencies, manage open orders and your asset balances
@@ -70,7 +66,7 @@ A platform for trading crypto currencies and running crypto currency strategies 
 # Getting Started
 
 > **_TIP:_**
->> See [thread #88](https://github.com/grantcolley/tradeview/issues/88) for some additional advice about getting the demo strategy to run. 
+>> See [thread #88](https://github.com/insionCEO/ASP.NET-Trading-Scanner/issues/88) for some additional advice about getting the demo strategy to run. 
 
 ## Setting up your dev environment
 Download the source code. Open the solution file **TradeView.sln**, go to multiple start-up projects and select the following projects to start:
@@ -90,7 +86,7 @@ Select the [Strategies](#strategies-module) module in the navigation panel and c
 *Note: the demo strategy only shows the real time trades with moving average and buy / sell indicators above and below the moving average.*
 
 > **_TIP:_**
->> See [thread #88](https://github.com/grantcolley/tradeview/issues/88) for some additional advice about getting the demo strategy to run. 
+>> See [thread #88](https://github.com/insionCEO/ASP.NET-Trading-Scanner/issues/88) for some additional advice about getting the demo strategy to run. 
 
 See [Strategies](#strategies) for more details of how running a strategy works.
 
@@ -100,16 +96,16 @@ Strategy parameters contain information the startegy uses to determine when to b
 See [Updating Strategy Parameters](#updating-strategy-parameters) for more details of how updating strategy parameters works.
 
 ## Create a Strategy
-Creating a strategy involves creating a class library with a class that inherits [TradeStrategyBase](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/TradeStrategyBase.cs) which implements [ITradeStrategy](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/ITradeStrategy.cs).
+Creating a strategy involves creating a class library with a class that inherits [TradeStrategyBase](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/TradeStrategyBase.cs) which implements [ITradeStrategy](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/ITradeStrategy.cs).
 
 You will also need to create a config entry for the strategy in the [Configuration](#configuration-module) module by selecting [Manage Strategies](#manage-strategies).
 
-The best way to understand how to create a strategy is to look at the demo strategy [MovingAverageStrategy](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.Strategy.MovingAverage/MovingAverageStrategy.cs) and how it has been configured.
+The best way to understand how to create a strategy is to look at the demo strategy [MovingAverageStrategy](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.Strategy.MovingAverage/MovingAverageStrategy.cs) and how it has been configured.
 
 ## Create a WPF Strategy Component
-Creating a WPF strategy component involves creating a class library with a view model that inherits [StrategyDisplayViewModelBase](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Wpf.Common/ViewModel/StrategyDisplayViewModelBase.cs) and a corresponding view.
+Creating a WPF strategy component involves creating a class library with a view model that inherits [StrategyDisplayViewModelBase](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Wpf.Common/ViewModel/StrategyDisplayViewModelBase.cs) and a corresponding view.
 
-The best way to understand how to create a WPF strategy component is to look at the project [DevelopmentInProgress.Strategy.MovingAverage.Wpf](https://github.com/grantcolley/tradeview/tree/master/src/DevelopmentInProgress.Strategy.MovingAverage.Wpf) for an example of how the demo WPF strategy component has been created. 
+The best way to understand how to create a WPF strategy component is to look at the project [DevelopmentInProgress.Strategy.MovingAverage.Wpf](https://github.com/insionCEO/ASP.NET-Trading-Scanner/tree/master/src/DevelopmentInProgress.Strategy.MovingAverage.Wpf) for an example of how the demo WPF strategy component has been created. 
 
 You will also need to update the config entry for the strategy in the [Configuration](#configuration-module) module by selecting [Manage Strategies](#manage-strategies).
 
@@ -171,7 +167,7 @@ You can view all configured [TradeServer's](#tradeserver-aspnetcore-webhost) and
 
 # TradeServer AspNetCore WebHost
 ## The Console
-The [console app](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.Console/Program.cs) takes three parameters:
+The [console app](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.Console/Program.cs) takes three parameters:
 - **s** = server name
 - **u** = url of the webhost
 - **p** = MaxDegreeOfParallelism for the dataflow StrategyRunnerActionBlock execution options
@@ -190,7 +186,7 @@ It creates and runs an instance of a WebHost, passing the parameters into it.
               .Build();
 ```
 
-The WebHost's [UseStrategyRunnerStartup](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/WebHostExtensions.cs) extension method passes in the command line args to the WebHost and specifies the Startup class to use.
+The WebHost's [UseStrategyRunnerStartup](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/WebHostExtensions.cs) extension method passes in the command line args to the WebHost and specifies the Startup class to use.
 
 ```C#
           public static class WebHostExtensions
@@ -206,7 +202,7 @@ The WebHost's [UseStrategyRunnerStartup](https://github.com/grantcolley/tradevie
 ```
 
 ## Startup
-The [Startup](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Startup.cs) configures the request processing pipeline to branch the request path to the appropriate middleware and configures the services to be consumed via dependency injection. 
+The [Startup](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Startup.cs) configures the request processing pipeline to branch the request path to the appropriate middleware and configures the services to be consumed via dependency injection. 
 
 ```C#
         public void Configure(IApplicationBuilder app)
@@ -254,15 +250,15 @@ The [Startup](https://github.com/grantcolley/tradeview/blob/master/src/Developme
 The following table shows the middleware each request path is mapped to. 
 |Request Path|Maps to Middleware|Description|
 |------------|------------------|-----------|
-|`http://localhost:5500/runstrategy`|[RunStrategyMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/RunStrategyMiddleware.cs)|Request to run a strategy|
-|`http://localhost:5500/stopstrategy`|[StopStrategyMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/StopStrategyMiddleware.cs)|Stop a running strategy|
-|`http://localhost:5500/updatestrategy`|[UpdateStrategyMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/UpdateStrategyMiddleware.cs)|Update a running strategy's parameters|
-|`http://localhost:5500/isstrategyrunning`|[IsStrategyRunningMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/IsStrategyRunningMiddleware.cs)|Check if a strategy is running|
-|`http://localhost:5500/ping`|[PingMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/PingMiddleware.cs)|Check if the trade server is running|
-|`http://localhost:5500/notificationhub`|[SocketMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.Socket.Extensions/SocketMiddleware.cs)|A websocket connection request|
+|`http://localhost:5500/runstrategy`|[RunStrategyMiddleware](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/RunStrategyMiddleware.cs)|Request to run a strategy|
+|`http://localhost:5500/stopstrategy`|[StopStrategyMiddleware](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/StopStrategyMiddleware.cs)|Stop a running strategy|
+|`http://localhost:5500/updatestrategy`|[UpdateStrategyMiddleware](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/UpdateStrategyMiddleware.cs)|Update a running strategy's parameters|
+|`http://localhost:5500/isstrategyrunning`|[IsStrategyRunningMiddleware](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/IsStrategyRunningMiddleware.cs)|Check if a strategy is running|
+|`http://localhost:5500/ping`|[PingMiddleware](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/PingMiddleware.cs)|Check if the trade server is running|
+|`http://localhost:5500/notificationhub`|[SocketMiddleware](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.Socket.Extensions/SocketMiddleware.cs)|A websocket connection request|
 
 #### StrategyRunnerBackgroundService
-The Startup class adds a long running hosted service [StrategyRunnerBackgroundService](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/HostedService/StrategyRunnerBackgroundService.cs) which inherits the BackgroundService. It is a long running background task for running trade strategies that have been posted to the trade servers runstrategy request pipeline. It contains a reference to the singleton [StrategyRunnerActionBlock](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/HostedService/StrategyRunnerActionBlock.cs) which has an ActionBlock dataflow that invokes an ActionBlock<StrategyRunnerActionBlockInput> delegate for each request to run a trade strategy.
+The Startup class adds a long running hosted service [StrategyRunnerBackgroundService](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/HostedService/StrategyRunnerBackgroundService.cs) which inherits the BackgroundService. It is a long running background task for running trade strategies that have been posted to the trade servers runstrategy request pipeline. It contains a reference to the singleton [StrategyRunnerActionBlock](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/HostedService/StrategyRunnerActionBlock.cs) which has an ActionBlock dataflow that invokes an ActionBlock<StrategyRunnerActionBlockInput> delegate for each request to run a trade strategy.
 
 ```C#
           strategyRunnerActionBlock.ActionBlock = new ActionBlock<StrategyRunnerActionBlockInput>(async actionBlockInput =>
@@ -275,7 +271,7 @@ The Startup class adds a long running hosted service [StrategyRunnerBackgroundSe
 ```
 
 #### StrategyNotificationHub
-The application uses [Socket](https://github.com/grantcolley/tradeview/tree/master/src/DevelopmentInProgress.Socket), based on [DipSocket](https://github.com/grantcolley/dipsocket), a lightweight publisher / subscriber implementation using WebSockets, for sending and receiving notifications to and from clients and servers. The [StrategyNotificationHub](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Notification/Strategy/StrategyNotificationHub.cs) inherits the abstract class [SocketServer](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.Socket/Server/SocketServer.cs) to manage client connections and channels. A client e.g. a running instance of [TradeView](#tradeview-wpf-ui), establishes a connection to the server with the purpose of running or monitoring a strategy on it. The strategy registers a Socket channel to which multiple client connections can subscribe. The strategy broadcasts notifications (e.g. live trade feed, buy and sell orders etc.) to the client connections. The [StrategyNotificationHub](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Notification/Strategy/StrategyNotificationHub.cs) overrides the OnClientConnectAsync and ReceiveAsync methods.
+The application uses [Socket](https://github.com/insionCEO/ASP.NET-Trading-Scanner/tree/master/src/DevelopmentInProgress.Socket), based on [DipSocket](https://github.com/insionCEO/dipsocket), a lightweight publisher / subscriber implementation using WebSockets, for sending and receiving notifications to and from clients and servers. The [StrategyNotificationHub](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Notification/Strategy/StrategyNotificationHub.cs) inherits the abstract class [SocketServer](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.Socket/Server/SocketServer.cs) to manage client connections and channels. A client e.g. a running instance of [TradeView](#tradeview-wpf-ui), establishes a connection to the server with the purpose of running or monitoring a strategy on it. The strategy registers a Socket channel to which multiple client connections can subscribe. The strategy broadcasts notifications (e.g. live trade feed, buy and sell orders etc.) to the client connections. The [StrategyNotificationHub](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Notification/Strategy/StrategyNotificationHub.cs) overrides the OnClientConnectAsync and ReceiveAsync methods.
 
 ```C#
           public async override Task OnClientConnectAsync(WebSocket websocket, string clientId, string strategyName)
@@ -305,7 +301,7 @@ The application uses [Socket](https://github.com/grantcolley/tradeview/tree/mast
 ```
 
 ## Batch Notifications
-Batch notifiers inherit abstract class [BatchNotification<T>](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Notification/BatchNotification.cs) which uses a BlockingCollection<T> for adding notifications to a queue while sending them on on a background thread.
+Batch notifiers inherit abstract class [BatchNotification<T>](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Notification/BatchNotification.cs) which uses a BlockingCollection<T> for adding notifications to a queue while sending them on on a background thread.
 
 #### Batch Notification Types
 ```C#
@@ -322,12 +318,12 @@ Batch notifiers inherit abstract class [BatchNotification<T>](https://github.com
     }
 ```
 
-The [StrategyBatchNotificationFactory](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Notification/Strategy/StrategyBatchNotificationFactory.cs) creates instances of batch notifiers. Batch notifiers use the [StrategyNotificationPublisher](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Notification/Strategy/StrategyNotificationPublisher.cs) to publish notifications (trade, order book, account notifications etc) to client connections.
+The [StrategyBatchNotificationFactory](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Notification/Strategy/StrategyBatchNotificationFactory.cs) creates instances of batch notifiers. Batch notifiers use the [StrategyNotificationPublisher](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Notification/Strategy/StrategyNotificationPublisher.cs) to publish notifications (trade, order book, account notifications etc) to client connections.
 
 # Strategies
 ## Running a Strategy
 #### The Client Request
-The clients loads the serialised [Strategy](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/Strategy.cs) and strategy assemblies into a MultipartFormDataContent and post a request to the server.
+The clients loads the serialised [Strategy](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/Strategy.cs) and strategy assemblies into a MultipartFormDataContent and post a request to the server.
 
 ```C#
             var client = new HttpClient();
@@ -351,7 +347,7 @@ The clients loads the serialised [Strategy](https://github.com/grantcolley/trade
             Task<HttpResponseMessage> response = await client.PostAsync("http://localhost:5500/runstrategy", multipartFormDataContent);
 ```
 #### The RunStrategyMiddleware
-The [RunStrategyMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/RunStrategyMiddleware.cs) processes the request on the server. It deserialises the strategy and downloads the strategy assemblies into a sub directory under the working directory of the application. The running of the strategy is then passed to the [StrategyRunnerActionBlock](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/HostedService/StrategyRunnerActionBlock.cs).
+The [RunStrategyMiddleware](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/RunStrategyMiddleware.cs) processes the request on the server. It deserialises the strategy and downloads the strategy assemblies into a sub directory under the working directory of the application. The running of the strategy is then passed to the [StrategyRunnerActionBlock](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/HostedService/StrategyRunnerActionBlock.cs).
 
 ```C#
                 var json = context.Request.Form["strategy"];
@@ -382,7 +378,7 @@ The [RunStrategyMiddleware](https://github.com/grantcolley/tradeview/blob/master
 ```
 
 #### The StrategyRunnerActionBlock
-The [StrategyRunnerActionBlock](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/HostedService/StrategyRunnerActionBlock.cs), hosted in the [StrategyRunnerBackgroundService](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/HostedService/StrategyRunnerBackgroundService.cs), has an ActionBlock dataflow that invokes an ActionBlock<StrategyRunnerActionBlockInput> delegate for each request to run a trade strategy by calling the [StrategyRunner.RunAsync](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/StrategyRunner.cs) method, passing in the strategy and location of the strategy assemblies to run.
+The [StrategyRunnerActionBlock](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/HostedService/StrategyRunnerActionBlock.cs), hosted in the [StrategyRunnerBackgroundService](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/HostedService/StrategyRunnerBackgroundService.cs), has an ActionBlock dataflow that invokes an ActionBlock<StrategyRunnerActionBlockInput> delegate for each request to run a trade strategy by calling the [StrategyRunner.RunAsync](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/StrategyRunner.cs) method, passing in the strategy and location of the strategy assemblies to run.
 
 ```C#
           strategyRunnerActionBlock.ActionBlock = new ActionBlock<StrategyRunnerActionBlockInput>(async actionBlockInput =>
@@ -395,8 +391,8 @@ The [StrategyRunnerActionBlock](https://github.com/grantcolley/tradeview/blob/ma
 ```
 
 #### The StrategyRunner
-A strategy must implement [ITradeStrategy](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/ITradeStrategy.cs). 
-The [StrategyRunner](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/StrategyRunner.cs) will load the strategy's assembly and all its dependencies into memory and create an instance of the strategy. It will subscribe to strategy events to handle notifications from the strategy to the client connection i.e. the [TradeView](#tradeview-wpf-ui) UI. The strategy is added to [TradeStrategyCacheManager](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/TradeStrategy/TradeStrategyCacheManager.cs) and the [SubscriptionsCacheManager](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/Subscriptions/SubscriptionsCacheManager.cs) subscribes to the strategy's feeds i.e. trade, orderbook, account updates etc. Finally, the [ITradeStrategy.RunAsync](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/ITradeStrategy.cs) method is called to run the strategy.
+A strategy must implement [ITradeStrategy](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/ITradeStrategy.cs). 
+The [StrategyRunner](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/StrategyRunner.cs) will load the strategy's assembly and all its dependencies into memory and create an instance of the strategy. It will subscribe to strategy events to handle notifications from the strategy to the client connection i.e. the [TradeView](#tradeview-wpf-ui) UI. The strategy is added to [TradeStrategyCacheManager](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/TradeStrategy/TradeStrategyCacheManager.cs) and the [SubscriptionsCacheManager](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/Subscriptions/SubscriptionsCacheManager.cs) subscribes to the strategy's feeds i.e. trade, orderbook, account updates etc. Finally, the [ITradeStrategy.RunAsync](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/ITradeStrategy.cs) method is called to run the strategy.
 
 ```C#
         internal async Task<Strategy> RunStrategyAsync(Strategy strategy, string localPath)
@@ -459,10 +455,10 @@ The [StrategyRunner](https://github.com/grantcolley/tradeview/blob/master/src/De
 ```
 
 ## Caching Running Strategies
-The [TradeStrategyCacheManager](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/TradeStrategy/TradeStrategyCacheManager.cs) caches running instances of strategies and is used to [check if a strategy is running](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/IsStrategyRunningMiddleware.cs), [update a running strategy's parameters](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/UpdateStrategyMiddleware.cs), and [stopping a strategy](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/StopStrategyMiddleware.cs).
+The [TradeStrategyCacheManager](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/TradeStrategy/TradeStrategyCacheManager.cs) caches running instances of strategies and is used to [check if a strategy is running](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/IsStrategyRunningMiddleware.cs), [update a running strategy's parameters](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/UpdateStrategyMiddleware.cs), and [stopping a strategy](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/StopStrategyMiddleware.cs).
 
 ## Caching Running Strategies Subscriptions
-Strategies can [subscribe](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/Subscribes.cs) to feeds for one or more symbols across multiple exhanges. 
+Strategies can [subscribe](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/Subscribes.cs) to feeds for one or more symbols across multiple exhanges. 
 
 ```C#
     [Flags]
@@ -476,9 +472,9 @@ Strategies can [subscribe](https://github.com/grantcolley/tradeview/blob/master/
     }
 ```
 
-The [SubscriptionsCacheManager](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/Subscriptions/SubscriptionsCacheManager.cs) manages symbols subscriptions across all exchanges using the [ExchangeSubscriptionsCacheFactory](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/Subscriptions/ExchangeSubscriptionsCacheFactory.cs) which provides an instance of the [ExchangeSubscriptionsCache](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/Subscriptions/ExchangeSubscriptionsCache.cs) for each exchange.
+The [SubscriptionsCacheManager](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/Subscriptions/SubscriptionsCacheManager.cs) manages symbols subscriptions across all exchanges using the [ExchangeSubscriptionsCacheFactory](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/Subscriptions/ExchangeSubscriptionsCacheFactory.cs) which provides an instance of the [ExchangeSubscriptionsCache](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/Subscriptions/ExchangeSubscriptionsCache.cs) for each exchange.
 
-The [IExchangeSubscriptionsCache](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/Subscriptions/IExchangeSubscriptionsCache.cs) uses a dictionary for caching symbol subscriptions for the exchange it was created.
+The [IExchangeSubscriptionsCache](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Cache/Subscriptions/IExchangeSubscriptionsCache.cs) uses a dictionary for caching symbol subscriptions for the exchange it was created.
 
 ```C#
     public interface IExchangeSubscriptionsCache : IDisposable
@@ -491,10 +487,10 @@ The [IExchangeSubscriptionsCache](https://github.com/grantcolley/tradeview/blob/
 ``` 
 
 ## Monitoring a Running Strategy
-The application uses [Socket](https://github.com/grantcolley/tradeview/tree/master/src/DevelopmentInProgress.Socket), based on [DipSocket](https://github.com/grantcolley/dipsocket), a lightweight publisher / subscriber implementation using WebSockets, for sending and receiving notifications to and from clients and servers.
+The application uses [Socket](https://github.com/insionCEO/ASP.NET-Trading-Scanner/tree/master/src/DevelopmentInProgress.Socket), based on [DipSocket](https://github.com/grantcolley/dipsocket), a lightweight publisher / subscriber implementation using WebSockets, for sending and receiving notifications to and from clients and servers.
 
 #### The Client Request to Monitor a Strategy
-The [SocketClient's](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.Socket/Client/SocketClient.cs) `StartAsync` method opens WebSocket connection with the [SocketServer](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.Socket/Server/SocketServer.cs). The `On` method registers an Action to be invoked when receiving a message from the server.
+The [SocketClient's](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.Socket/Client/SocketClient.cs) `StartAsync` method opens WebSocket connection with the [SocketServer](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.Socket/Server/SocketServer.cs). The `On` method registers an Action to be invoked when receiving a message from the server.
 
 ```C#
             socketClient = new DipSocketClient($"{Strategy.StrategyServerUrl}/notificationhub", strategyAssemblyManager.Id);
@@ -571,7 +567,7 @@ The [SocketClient's](https://github.com/grantcolley/tradeview/blob/master/src/De
 ```
 
 #### The SocketMiddleware
-The [SocketMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.Socket.Extensions/SocketMiddleware.cs) processes the request on the server. The [StrategyNotificationHub](#strategynotificationhub) manages client connections.
+The [SocketMiddleware](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.Socket.Extensions/SocketMiddleware.cs) processes the request on the server. The [StrategyNotificationHub](#strategynotificationhub) manages client connections.
 
 ```C#
             var webSocket = await context.WebSockets.AcceptWebSocketAsync();
@@ -636,7 +632,7 @@ The [SocketMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/
 
 ## Updating Strategy Parameters
 #### The Client Request to Update a Strategy
-The [StrategyRunnerClient](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/StrategyRunnerClient.cs) posts a message to the strategy server to update a running strategy's parameters.
+The [StrategyRunnerClient](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/StrategyRunnerClient.cs) posts a message to the strategy server to update a running strategy's parameters.
 
 ```C#
            var strategyParametersJson = JsonConvert.SerializeObject(strategyParameters, Formatting.Indented);
@@ -647,7 +643,7 @@ The [StrategyRunnerClient](https://github.com/grantcolley/tradeview/blob/master/
 ```
 
 #### The UpdateStrategyMiddleware
-The [UpdateStrategyMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/UpdateStrategyMiddleware.cs) processes the request on the server.
+The [UpdateStrategyMiddleware](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/UpdateStrategyMiddleware.cs) processes the request on the server.
 
 ```C#
            var json = context.Request.Form["strategyparameters"];
@@ -662,7 +658,7 @@ The [UpdateStrategyMiddleware](https://github.com/grantcolley/tradeview/blob/mas
 
 ## Stopping a Running Strategy
 #### The Client Request to Stop a Strategy
-The [StrategyRunnerClient](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/StrategyRunnerClient.cs) posts a message to the strategy server to stop a running strategy.
+The [StrategyRunnerClient](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Core/TradeStrategy/StrategyRunnerClient.cs) posts a message to the strategy server to stop a running strategy.
 
 ```C#
            var strategyParametersJson = JsonConvert.SerializeObject(strategyParameters, Formatting.Indented);
@@ -673,7 +669,7 @@ The [StrategyRunnerClient](https://github.com/grantcolley/tradeview/blob/master/
 ```
 
 #### The StopStrategyMiddleware
-The [StopStrategyMiddleware](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/StopStrategyMiddleware.cs) processes the request on the server.
+The [StopStrategyMiddleware](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeServer.StrategyExecution.WebHost/Web/Middleware/StopStrategyMiddleware.cs) processes the request on the server.
 
 ```C#
            var json = context.Request.Form["strategyparameters"];
@@ -692,8 +688,8 @@ The [StopStrategyMiddleware](https://github.com/grantcolley/tradeview/blob/maste
 * [Binance](https://github.com/sonvister/Binance)
 * [Kucoin.Net](https://github.com/JKorf/Kucoin.Net)
 
-To add a new api create a new .NET Standard project for the API wrapper and create a class that implements [IExchangeApi](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Core/Interfaces/IExchangeApi.cs).
-For example see [BinanceExchangeApi](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Api.Binance/BinanceExchangeApi.cs). 
+To add a new api create a new .NET Standard project for the API wrapper and create a class that implements [IExchangeApi](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Core/Interfaces/IExchangeApi.cs).
+For example see [BinanceExchangeApi](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Api.Binance/BinanceExchangeApi.cs). 
 
 ```C#
 namespace DevelopmentInProgress.TradeView.Api.Binance
@@ -723,7 +719,7 @@ namespace DevelopmentInProgress.TradeView.Api.Binance
         }
 ```
 
-Next, add the exchange to the [Exchange](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Core/Enums/Exchange.cs) enum.
+Next, add the exchange to the [Exchange](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Core/Enums/Exchange.cs) enum.
 
 ```C#
     public enum Exchange
@@ -735,7 +731,7 @@ Next, add the exchange to the [Exchange](https://github.com/grantcolley/tradevie
     }
 ```
 
-Finally, return an instance of the new exchange from the [ExchangeApiFactory](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Service/ExchangeApiFactory.cs).
+Finally, return an instance of the new exchange from the [ExchangeApiFactory](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Service/ExchangeApiFactory.cs).
 
 ```C#
     public class ExchangeApiFactory : IExchangeApiFactory
@@ -764,12 +760,12 @@ Finally, return an instance of the new exchange from the [ExchangeApiFactory](ht
 ```
 
 ## Persisting Configuration Data
-Data can be persisted to any data source by creating a library with classes that implement the interfaces in [DevelopmentInProgress.TradeView.Data](https://github.com/grantcolley/tradeview/tree/master/src/DevelopmentInProgress.TradeView.Data).
-* [ITradeViewConfigurationAccounts](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Data/ITradeViewConfigurationAccounts.cs)
-* [ITradeViewConfigurationServer](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Data/ITradeViewConfigurationServer.cs)
-* [ITradeViewConfigurationStrategy](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Data/ITradeViewConfigurationStrategy.cs)
+Data can be persisted to any data source by creating a library with classes that implement the interfaces in [DevelopmentInProgress.TradeView.Data](https://github.com/insionCEO/ASP.NET-Trading-Scanner/tree/master/src/DevelopmentInProgress.TradeView.Data).
+* [ITradeViewConfigurationAccounts](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Data/ITradeViewConfigurationAccounts.cs)
+* [ITradeViewConfigurationServer](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Data/ITradeViewConfigurationServer.cs)
+* [ITradeViewConfigurationStrategy](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Data/ITradeViewConfigurationStrategy.cs)
 
-And register the classes in the TradeView's [App.xaml.cs](https://github.com/grantcolley/tradeview/blob/master/src/DevelopmentInProgress.TradeView.Wpf.Host/App.xaml.cs) RegisterTypes method.
+And register the classes in the TradeView's [App.xaml.cs](https://github.com/insionCEO/ASP.NET-Trading-Scanner/blob/master/src/DevelopmentInProgress.TradeView.Wpf.Host/App.xaml.cs) RegisterTypes method.
 ```C#
             containerRegistry.Register<ITradeViewConfigurationAccounts, TradeViewConfigurationAccountsFile>();
             containerRegistry.Register<ITradeViewConfigurationStrategy, TradeViewConfigurationStrategyFile>();
